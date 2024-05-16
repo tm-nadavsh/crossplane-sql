@@ -323,10 +323,10 @@ spec:
                     data:
                       endpoint: |
                         {
-                          "endpoint": "{{ .endpoint }}",
-                          "port": "{{ .port }}",
-                          "username": "{{ .username }}",
-                          "password": "{{ .password }}"[[ range .observed.composite.resource.spec.parameters.databases ]],
+                          "endpoint": "{{`{{ .endpoint }}`}}",
+                          "port": "{{`{{ .port }}`}}",
+                          "username": "{{`{{ .username }}`}}",
+                          "password": "{{`{{ .password }}`}}"[[ range .observed.composite.resource.spec.parameters.databases ]],
                           "conn-[[ . ]]": "host={{ .endpoint }} user={{ .username }} password={{ .password }} port={{ .port }} connect_timeout=10 database=[[ . ]]"[[ end ]]
                         }
                   data:
